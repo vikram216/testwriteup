@@ -91,3 +91,17 @@ right_mean_slope = right_slopes[right_lines_sizes_sorted][-5::].mean()
 ```
 This approach definitely is working well compared to the simple mean slopes approach on both the challenge videos. But when it comes to optional challenge, I could notice that at few frames starting from frame 72 till 80, the right lane is detected incorrectly and it is drawing the line almost in the center of the image between left and right lanes.
 
+![](folder_for_writeup/problem_frame.jpg)
+
+### **Using Linear Regression for extrapolating the lines**
+
+Since the Mean slopes of n biggest lines had some places in the optional challenge video that it failed to detect the lane lines properly, I thought it is time to try some more advanced techniques like linear regression to fit this line.
+
+The overall approach is similar to mean slopes, except that we don't calculate any mean of the slopes and intercepts here and we don't remove any outliers. But we use Linear regression to find a best fit given all the x and y co-ordinates of the left and right lines
+
+```
+left_m, left_b = np.polyfit(left_lines_x, left_lines_y, 1)
+right_m, right_b = np.polyfit(right_lines_x, right_lines_y, 1) 
+```
+
+This approach has overcome the issues that I encountered in the second approach (mean by removing outliers) and has worked pretty well on all the challenge videos and the optional challenge video. I think it can be improved further if I use a higher order polynomial fit as the road is curved here in the optional challenge video. 
