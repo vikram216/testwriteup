@@ -72,3 +72,22 @@ This approach has worked fine for most of the images but is not very robust. As 
 
 ![](folder_for_writeup/whiteCarLaneSwitch_lane_marked_mean_slope_approach.jpg) 
 
+### **Mean slopes of n biggest lines**
+
+After observing the results from the first approach, I thought it would be better if I take only n biggest lines in length and take the mean slopes of them alone and extrapolate the lane lines.
+
+The high level steps used in this approach are similar to the mean slopes approach except that there are these additional steps to calculate the line lengths using sqrt((x2-x1)^2+(y2-y1)^2) and picking the top 5 lines by length
+
+```
+left_lines_sizes = np.sqrt((left_lines[:,2]-left_lines[:,0])**2 + (left_lines[:,3]-left_lines[:,1])**2)
+right_lines_sizes = np.sqrt((right_lines[:,2]-right_lines[:,0])**2 + (right_lines[:,3]-right_lines[:,1])**2)
+
+left_lines_sizes_sorted = np.argsort(left_lines_sizes)
+right_lines_sizes_sorted = np.argsort(right_lines_sizes)
+
+left_mean_slope = left_slopes[left_lines_sizes_sorted][-5::].mean()
+right_mean_slope = right_slopes[right_lines_sizes_sorted][-5::].mean()
+
+```
+This approach definitely is working well compared to the simple mean slopes approach on both the challenge videos. But when it comes to optional challenge, I could notice that at few frames starting from frame 72 till 80, the right lane is detected incorrectly and it is drawing the line almost in the center of the image between left and right lanes.
+
