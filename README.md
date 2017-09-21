@@ -8,11 +8,9 @@ In this project I have used Python3, Numpy, Matplotlib, Canny Edge Detection, Ho
 
 I have tried all these three approaches on the sample images and test videos. All these three techniques are working fine on the sample images and videos, but the first two techniques are not working well on the optional challenge and the Linear Regression approach is working fine on the optional challenge.
 
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
 ---
 
-**Goal of this project**
+## **Goal of this project**
 
 The goals / steps of this project are the following:
 * Make a pipeline that finds lane lines on the road
@@ -21,7 +19,7 @@ The goals / steps of this project are the following:
 
 A sample original image and lane marked image is shown below
 
-[//]: # (Image References)
-[Original Image]: ./folder_for_writeup/whiteCarLaneSwitch.jpg
+![Original Image](folder_for_writeup/whiteCarLaneSwitch.jpg)
 
-[Lane Marked Image]: ./folder_for_writeup/whiteCarLaneSwitch_lane_marked_mean_slope_approach.jpg
+![Lane Marked Image](folder_for_writeup/whiteCarLaneSwitch_lane_marked_polynomial_fit.jpg)
+
