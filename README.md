@@ -51,3 +51,7 @@ This is the simple and first approach that I wanted to test and try on this prob
 5. Identify the left lines and right lines based on the above two points and average slopes and average intercepts for left and right lines
 6. Find the starting and ending points of the lines making use of these mean slopes and intercepts and extrapolate the lines
 
+This approach has worked fine for most of the images but is not very robust. As the mean of a dataset is highly influenced by the outliers in the dataset, this approach won't work well all the time. For example see the left lane identified by this approach in the following image 
+
+![](folder_for_writeup/whiteCarLaneSwitch_lane_marked_mean_slope_approach.jpg) 
+
